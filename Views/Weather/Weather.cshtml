@@ -1,0 +1,52 @@
+﻿@model WeatherApp.WeatherData
+
+
+<div id="openweathermap-widget-12">
+    <div id="container-openweathermap-widget-12">
+        <link href="//openweathermap.org/themes/openweathermap/assets/vendor/owm/css/openweathermap-widget-left.min.css"
+              rel="stylesheet">
+        <div class="widget-left widget-left--compact">
+            <div class="widget-left-menu widget-left-menu--compact widget-left-menu--brown">
+                <div class="widget-left-menu__layout widget-left-menu__layout--brown">
+                    <h2 class="widget-left-menu__header" id="citydata">@Model.Title</h2>
+                </div>
+            </div>
+            <div>
+                <p></p>
+                <form id="formdata" style="margin: 5px; width: 225px;">
+                    <input id="city-name" name="city" type="text" placeholder="Omsk">
+                    <button id="search-city" type="submit" style="background-color: #EB6E4B; border-radius: 16pt; border: 1px solid #EB6E4B;color: #ffffff;white-space: nowrap; display: inline-block;">Search</button>
+                </form>
+            </div>
+            <div class="widget-left__body widget-left__body--compact">
+                <div  style="margin-left: 10px;" class="weather-left-card weather-left-card--compact">
+                    <div  style="margin-left: 10px;" class="weather-left-card__row1">
+                        @{
+                            string source = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/img/widgets/" + @Model.Weather[0].Icon + ".png";
+                        }
+                        <img id="imgdata"
+                             src=@source
+                             alt="Weather in Omsk, RU" class="weather-left-card__img" width="128" height="128">
+                        <div class="weather-left-card__col">
+                            <p class="weather-left-card__number">
+                                <span class="weather-left-card__degree" id="tempdata">@Convert.ToInt32(Model.Main.Temperature)°C</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="weather-left-card__row2">
+                        <p class="weather-left-card__means" id="descriptiondata">@Model.Weather[0].Description</p>
+                    </div>
+                </div>
+                <div class="widget-left-menu__links widget-left-menu__links--compact widget-left-menu__links--brown">
+                    <div  style="margin-left: 0px;" class="widget-left-menu__logo_container">
+                        <a href="//openweathermap.org/" target="_blank">
+                            <div class="widget-left-menu__logo_black_small">
+
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
