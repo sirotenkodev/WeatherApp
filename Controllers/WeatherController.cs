@@ -25,7 +25,7 @@ namespace WeatherApp
         public IActionResult Weather()
         {
             string uri = "http://api.openweathermap.org/data/2.5/weather?q=Omsk&units=metric&appid=APIKEY";
-            WeatherData results = weatherService.GetWeatherData(uri).Result;
+            WeatherData results = weatherService.GetWeatherData(uri).GetAwaiter().GetResult();
             return View(results);
         }
 
@@ -33,7 +33,7 @@ namespace WeatherApp
         public IActionResult Weather(string city)
         {
             string uri = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=APIKEY";
-            WeatherData results = weatherService.GetWeatherData(uri).Result;
+            WeatherData results = weatherService.GetWeatherData(uri).GetAwaiter().GetResult();
             return View(results);
         }
     }
