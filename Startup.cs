@@ -30,9 +30,7 @@ namespace WeatherApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Weather}/{action=Weather}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
